@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['brick']
+
+roboflow:
+  workspace: test-5ev0m
+  project: brick-detection-original-view
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/test-5ev0m/brick-detection-original-view/dataset/2

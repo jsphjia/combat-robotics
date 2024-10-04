@@ -3,12 +3,12 @@ from roboflow import Roboflow
 import numpy as np
 import supervision as sv
 
+# this function processes each frame from a given video and annotates the detected house robot
 def process_frame(frame: np.ndarray, model):
     results = model(frame, imgsz = 1280)[0]
     detections = sv.Detections.from_yolov8(results)
     box_annotator = sv.BoxAnnotator(thickness = 4, text_thickness = 4, text_scale = 2)
-
-
+    frame = box_annotator.annotate(scene=frame, detections=detections)
     return frame
 
 def main():
